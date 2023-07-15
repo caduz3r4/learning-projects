@@ -1,0 +1,7 @@
+let nome;
+let sobrenome;
+
+nome=prompt("Informe seu nome: ");
+sobrenome=prompt("Informe seu sobrenome: ");
+
+console.log("Seu nome completo é: "+(nome +" "+sobrenome))
