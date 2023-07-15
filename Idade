@@ -1,0 +1,5 @@
+let ano;
+
+ano = Number(prompt("Informe o ano do seu nascimento: "));
+
+console.log("Sua idade é: "+(2023-ano));
