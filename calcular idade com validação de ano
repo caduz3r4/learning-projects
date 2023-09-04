@@ -1,0 +1,24 @@
+function calcularIdade(anoNascimento) {
+  return new Date().getFullYear() - anoNascimento;
+}
+
+function main() {
+  while (true) {
+    try {
+      const nomeCompleto = prompt("Digite seu nome completo: ");
+      const anoNascimento = parseInt(prompt("Digite seu ano de nascimento (1922-2021): "));
+      
+      if (!(anoNascimento >= 1922 && anoNascimento <= 2021)) {
+        throw "Ano de nascimento fora do intervalo válido (1922-2021) ou entrada inválida.";
+      }
+
+      const idade = calcularIdade(anoNascimento);
+      alert(`Nome: ${nomeCompleto}\nIdade em 2022: ${idade} anos`);
+      break;
+    } catch (error) {
+      alert(error);
+    }
+  }
+}
+
+main();
