@@ -1,0 +1,17 @@
+const senhaBaseSecreta = "SenhaSuperSecreta123";
+
+const sistemaSeguranca = SistemaSeguranca.getInstancia(senhaBaseSecreta);
+
+const agente1 = "Agente 007";
+const senhaAgente1 = "SenhaDoAgente007";
+
+const acessoConcedido1 = sistemaSeguranca.acessarBaseSecreta(senhaAgente1);
+
+console.log(`Agente ${agente1}: Acesso ${acessoConcedido1 ? "concedido" : "negado"}`);
+
+const agente2 = "Agente 008";
+const senhaAgente2 = senhaBaseSecreta;
+
+const acessoConcedido2 = sistemaSeguranca.acessarBaseSecreta(senhaAgente2);
+
+console.log(`Agente ${agente2}: Acesso ${acessoConcedido2 ? "concedido" : "negado"}`);
