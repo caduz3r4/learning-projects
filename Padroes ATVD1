@@ -1,0 +1,107 @@
+// Interface comum para produtos
+interface Computer {
+    String getType();
+    int getRAM();
+    int getHDD();
+    double getCPU();
+}
+
+// Fábrica para criar instâncias do tipo abstrato da interface
+class ComputerFactory {
+    public static Computer createComputer(String type, int ram, int hdd, double cpu) {
+        if (type.equalsIgnoreCase("PC")) {
+            return new PC(ram, hdd, cpu);
+        } else if (type.equalsIgnoreCase("Server")) {
+            return new Server(ram, hdd, cpu);
+        } else {
+            throw new IllegalArgumentException("Tipo de computador inválido");
+        }
+    }
+}
+
+// Implementação para computador PC
+class PC implements Computer {
+    private final int ram;
+    private final int hdd;
+    private final double cpu;
+
+    public PC(int ram, int hdd, double cpu) {
+        this.ram = ram;
+        this.hdd = hdd;
+        this.cpu = cpu;
+    }
+
+    @Override
+    public String getType() {
+        return "PC";
+    }
+
+    @Override
+    public int getRAM() {
+        return ram;
+    }
+
+    @Override
+    public int getHDD() {
+        return hdd;
+    }
+
+    @Override
+    public double getCPU() {
+        return cpu;
+    }
+
+    @Override
+    public String toString() {
+        return "PC: RAM=" + ram + "GB, HDD=" + hdd + "GB, CPU=" + cpu + "GHz";
+    }
+}
+
+// Implementação para servidor
+class Server implements Computer {
+    private final int ram;
+    private final int hdd;
+    private final double cpu;
+
+    public Server(int ram, int hdd, double cpu) {
+        this.ram = ram;
+        this.hdd = hdd;
+        this.cpu = cpu;
+    }
+
+    @Override
+    public String getType() {
+        return "Server";
+    }
+
+    @Override
+    public int getRAM() {
+        return ram;
+    }
+
+    @Override
+    public int getHDD() {
+        return hdd;
+    }
+
+    @Override
+    public double getCPU() {
+        return cpu;
+    }
+
+    @Override
+    public String toString() {
+        return "Server: RAM=" + ram + "GB, HDD=" + hdd + "GB, CPU=" + cpu + "GHz";
+    }
+}
+
+// Exemplo de uso
+public class Main {
+    public static void main(String[] args) {
+        Computer pc = ComputerFactory.createComputer("PC", 8, 500, 3.2);
+        Computer server = ComputerFactory.createComputer("Server", 16, 1000, 4.0);
+
+        System.out.println(pc);
+        System.out.println(server);
+    }
+}
